@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 @Slf4j
-public class IndexController {
+public class ControladorInicio {
     @GetMapping("/")
-    public String inicio(){
+    public String start(){
         log.info("Ejecutando el controlador rest");
         return "index";
     }
