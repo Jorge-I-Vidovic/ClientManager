@@ -12,7 +12,7 @@ import java.util.*;
 @Slf4j
 public class ControladorInicio {
     @GetMapping("/")
-    public String start(Model model){
+    public String start(Model model) {
         var message = "Hola mundo con Spring";
 
         var person = new Person();
@@ -31,7 +31,7 @@ public class ControladorInicio {
         persons.add(person);
         persons.add(person2);
 
-        model.addAttribute("message",message);
+        model.addAttribute("message", message);
         model.addAttribute("persons", persons);
         return "index";
     }
