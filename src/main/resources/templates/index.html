@@ -20,10 +20,10 @@
                 <th>Teléfono</th>
             </tr>
             <tr th:each="person : ${persons}">
-                <td th:text="${person.name}">Mostrar Nombre</td>
-                <td th:text="${person.surname}">Mostrar apellido</td>
+                <td th:text="${person.nombre}">Mostrar Nombre</td>
+                <td th:text="${person.apellido}">Mostrar apellido</td>
                 <td th:text="${person.email}">Mostrar email</td>
-                <td th:text="${person.phoneNumber}">Mostrar teléfono</td>
+                <td th:text="${person.telefono}">Mostrar teléfono</td>
             </tr>
         </table>
     </div>
