@@ -8,8 +8,7 @@
 
 <body>
     <h1>Inicio</h1>
-    <p th:text="${message}"></p>
-    <br>
+    <a th:href="@{/addPerson}">Crear persona</a>
 
     <div th:if="${persons != null and !persons.empty}">
         <table border="1">
