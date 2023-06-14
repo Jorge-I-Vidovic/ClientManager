@@ -24,13 +24,26 @@ public class ControladorInicio {
     }
 
     @GetMapping("/addPerson")
-    public String addPerson(Person person){
+    public String addPerson(Person person) {
         return "modifyPerson";
     }
 
     @PostMapping("/savePerson")
-    public String savePerson(Person person){
+    public String savePerson(Person person) {
         personServ.savePerson(person);
+        return "redirect:/";
+    }
+
+    @GetMapping("/editPerson")
+    public String editPerson(Person person, Model model) {
+        person = personServ.findPerson(person);
+        model.addAttribute("person", person);
+        return "modifyPerson";
+    }
+
+    @GetMapping("/deletePerson")
+    public String deletePerson(Person person) {
+        personServ.deletePerson(person);
         return "redirect:/";
     }
 }
