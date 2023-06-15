@@ -8,30 +8,29 @@
 
 <body>
     <header th:replace="~{layout/template :: header}"></header>
-    <a th:href="@{/addPerson}">Crear persona</a>
-
+    <a th:href="@{/addPerson}">[[#{person.create}]]</a>
     <div th:if="${persons != null and !persons.empty}">
         <table border="1">
             <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Email</th>
-                <th>Teléfono</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
+                <th>[[#{person.name}]]</th>
+                <th>[[#{person.lastname}]]</th>
+                <th>[[#{person.email}]]</th>
+                <th>[[#{person.phone}]]</th>
+                <th>[[#{action.edit}]]</th>
+                <th>[[#{action.delete}]]</th>
             </tr>
             <tr th:each="person : ${persons}">
                 <td th:text="${person.nombre}">Mostrar Nombre</td>
                 <td th:text="${person.apellido}">Mostrar apellido</td>
                 <td th:text="${person.email}">Mostrar email</td>
                 <td th:text="${person.telefono}">Mostrar teléfono</td>
-                <td> <a th:href="@{/editPerson(id_persona=${person.id_persona})}" th:text="Editar"></a> </td>
-                <td> <a th:href="@{/deletePerson(id_persona=${person.id_persona})}" th:text="Eliminar"></a> </td>
+                <td> <a th:href="@{/editPerson(id_persona=${person.id_persona})}">[[#{action.edit}]]</a> </td>
+                <td> <a th:href="@{/deletePerson(id_persona=${person.id_persona})}">[[#{action.delete}]]</a> </td>
             </tr>
         </table>
     </div>
     <div th:if="${persons == null or persons.empty}">
-        <p>La lista de personas está vacía</p>
+        <p>[[#{person.emptyList}]]</p>
     </div>
     <footer th:replace="~{layout/template :: footer}"></footer>
 </body>

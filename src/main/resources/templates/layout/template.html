@@ -6,10 +6,15 @@
 </head>
 <body>
     <header th:fragment="header">
-        <h1>Control de clientes</h1>
+        <h1 th:text="#{template.title}"></h1>
     </header>
     <footer th:fragment="footer">
-        <p>Control Manager by <a href="https://github.com/Jorge-I-Vidovic" target="_blank">Jorge I. Vidovic</a> | <a href="https://vidovic.systems/" target="_blank">Vidovic Systems</a> - Todos los derechos reservados.</p>
+        <div>
+            <br>
+            <a th:href="@{/(lang=es)}">ES</a> |
+            <a th:href="@{/(lang=en)}">EN</a> |
+            <span>Control Manager by <a href="https://github.com/Jorge-I-Vidovic" target="_blank">Jorge I. Vidovic</a> | <a href="https://vidovic.systems/" target="_blank">Vidovic Systems</a> - [[#{template.footer}]]</span>
+        </div>
     </footer>
 </body>
 </html>
