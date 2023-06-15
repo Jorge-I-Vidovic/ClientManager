@@ -5,7 +5,8 @@
     <title>Datos de la persona</title>
 </head>
 <body>
-  <h1>Datos de la persona</h1>
+  <header th:replace="~{layout/template :: header}"></header>
+  <h2>Datos de la persona</h2>
   <a th:href="@{/}">Regresar</a>
   <br>
   <form th:action="@{/savePerson}" method="post" th:object="${person}">
@@ -13,17 +14,22 @@
     <br>
     <label for="nombre">Nombre:</label>
     <input type="text" name="nombre" th:field="*{nombre}">
+    <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">El nombre contiene errores</span>
     <br>
     <label for="apellido">Apellido:</label>
     <input type="text" name="apellido" th:field="*{apellido}">
+    <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">El apellido contiene errores</span>
     <br>
     <label for="email">Email:</label>
     <input type="email" name="email" th:field="*{email}">
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">El email contiene errores</span>
     <br>
     <label for="telefono">Teléfono:</label>
     <input type="tel" name="telefono" th:field="*{telefono}">
+    <span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}">El teléfono contiene errores</span>
     <br>
     <input type="submit" name="guardar" value="Guardar"/>
   </form>
+  <footer th:replace="~{layout/template :: footer}"></footer>
 </body>
 </html>

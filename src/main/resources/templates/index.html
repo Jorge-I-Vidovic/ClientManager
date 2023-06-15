@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <h1>Inicio</h1>
+    <header th:replace="~{layout/template :: header}"></header>
     <a th:href="@{/addPerson}">Crear persona</a>
 
     <div th:if="${persons != null and !persons.empty}">
@@ -33,7 +33,7 @@
     <div th:if="${persons == null or persons.empty}">
         <p>La lista de personas está vacía</p>
     </div>
-
+    <footer th:replace="~{layout/template :: footer}"></footer>
 </body>
 
 </html>
