@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @Slf4j
-public class ControladorInicio {
+public class indexController {
 
     @Autowired
     private PersonService personServ;
@@ -32,7 +32,7 @@ public class ControladorInicio {
 
     @PostMapping("/savePerson")
     public String savePerson(@Valid Person person, Errors er) {
-        if(er.hasErrors()){
+        if (er.hasErrors()) {
             return "modifyPerson";
         }
         personServ.savePerson(person);

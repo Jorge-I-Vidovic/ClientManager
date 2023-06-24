@@ -14,6 +14,9 @@
             <a th:href="@{/(lang=es)}">ES</a> |
             <a th:href="@{/(lang=en)}">EN</a> |
             <span>Control Manager by <a href="https://github.com/Jorge-I-Vidovic" target="_blank">Jorge I. Vidovic</a> | <a href="https://vidovic.systems/" target="_blank">Vidovic Systems</a> - [[#{template.footer}]]</span>
+            <form method="post" th:action="@{/logout}">
+                <a href="#" onclick="this.parentNode.submit();">Logout</a>
+            </form>
         </div>
     </footer>
 </body>
