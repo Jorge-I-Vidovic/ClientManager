@@ -39,14 +39,14 @@ public class indexController {
         return "redirect:/";
     }
 
-    @GetMapping("/editPerson")
+    @GetMapping("/editPerson/{id_persona}")
     public String editPerson(Person person, Model model) {
         person = personServ.findPerson(person);
         model.addAttribute("person", person);
         return "modifyPerson";
     }
 
-    @GetMapping("/deletePerson")
+    @GetMapping("/deletePerson/{id_persona}")
     public String deletePerson(Person person) {
         personServ.deletePerson(person);
         return "redirect:/";
