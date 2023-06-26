@@ -39,7 +39,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests()
                 .requestMatchers("/editPerson/**", "/addPerson/**", "/deletePerson", "/savePerson").hasAuthority("ADMIN")
                 .anyRequest().permitAll()
-                .and().exceptionHandling().accessDeniedPage("/errores/403")
+                .and().exceptionHandling().accessDeniedPage("/errors/403")
                 .and()
                 .formLogin((form) -> form
                         .loginPage("/login")

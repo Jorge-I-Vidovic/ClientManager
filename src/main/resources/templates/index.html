@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +11,7 @@
 
 <body>
     <header th:replace="~{layout/template :: header}"></header>
-    <a th:href="@{/addPerson}">[[#{person.create}]]</a>
+    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/addPerson}">[[#{person.create}]]</a>
     <div th:if="${persons != null and !persons.empty}">
         <table border="1">
             <tr>
@@ -16,16 +19,16 @@
                 <th>[[#{person.lastname}]]</th>
                 <th>[[#{person.email}]]</th>
                 <th>[[#{person.phone}]]</th>
-                <th>[[#{action.edit}]]</th>
-                <th>[[#{action.delete}]]</th>
+                <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{action.edit}]]</th>
+                <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{action.delete}]]</th>
             </tr>
             <tr th:each="person : ${persons}">
                 <td th:text="${person.nombre}">Mostrar Nombre</td>
                 <td th:text="${person.apellido}">Mostrar apellido</td>
                 <td th:text="${person.email}">Mostrar email</td>
                 <td th:text="${person.telefono}">Mostrar teléfono</td>
-                <td> <a th:href="@{/editPerson/} + ${person.id_persona}">[[#{action.edit}]]</a> </td>
-                <td> <a th:href="@{/deletePerson/} + ${person.id_persona}">[[#{action.delete}]]</a> </td>
+                <td sec:authorize="hasRole('ROLE_ADMIN')"> <a th:href="@{/editPerson/} + ${person.id_persona}">[[#{action.edit}]]</a> </td>
+                <td sec:authorize="hasRole('ROLE_ADMIN')"> <a th:href="@{/deletePerson/} + ${person.id_persona}">[[#{action.delete}]]</a> </td>
             </tr>
         </table>
     </div>

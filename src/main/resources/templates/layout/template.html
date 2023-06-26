@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Plantilla</title>
@@ -14,6 +17,8 @@
             <a th:href="@{/(lang=es)}">ES</a> |
             <a th:href="@{/(lang=en)}">EN</a> |
             <span>Control Manager by <a href="https://github.com/Jorge-I-Vidovic" target="_blank">Jorge I. Vidovic</a> | <a href="https://vidovic.systems/" target="_blank">Vidovic Systems</a> - [[#{template.footer}]]</span>
+            <br>
+            <b>User:</b> <span sec:authentication="name"></span>
             <form method="post" th:action="@{/logout}">
                 <a href="#" onclick="this.parentNode.submit();">Logout</a>
             </form>
