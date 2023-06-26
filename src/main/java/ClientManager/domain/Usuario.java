@@ -6,17 +6,24 @@ import lombok.Data;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Data
-@Table(name = "rol")
-public class Rol implements Serializable {
+@Table(name = "user")
+public class Usuario implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_rol;
-    @NotEmpty
-    private String name;
     private int id_user;
+    @NotEmpty
+    private String username;
+    @NotEmpty
+    private String password;
+
+    @OneToMany
+    @JoinColumn(name = "id_user")
+    private List<Rol> roles;
+
 }

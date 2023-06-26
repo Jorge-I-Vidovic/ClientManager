@@ -2,11 +2,11 @@ package ClientManager.util;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-public class EncriptPassword {
+public class Encriptador {
     public static void main(String[] args) {
-        var password = "root9876";
+        var password = "User1234*";
         System.out.println("Password: " + password);
-        System.out.println("Password encript: " + encriptPassword(password));
+        System.out.println("Password encriptado: " + encriptPassword(password));
     }
 
     public static String encriptPassword(String password){
