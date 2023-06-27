@@ -4,11 +4,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Inicio</title>
-</head>
-
+<head th:replace="~{layout/template :: head}"></head>
 <body>
     <header th:replace="~{layout/template :: header}"></header>
     <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/addPerson}">[[#{person.create}]]</a>
@@ -37,5 +33,4 @@
     </div>
     <footer th:replace="~{layout/template :: footer}"></footer>
 </body>
-
 </html>
