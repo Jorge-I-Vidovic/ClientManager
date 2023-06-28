@@ -6,6 +6,7 @@
   <meta charset="UTF-8"/>
 </head>
 <body>
+<header th:replace="layout/template :: header"></header>
 <h1>Login</h1>
 
 <form method="POST" th:action="@{/login}">
@@ -17,6 +18,6 @@
   <br/>
   <input type="submit" value="Login"/>
 </form>
-
+<footer th:replace="~{layout/template :: footer}"></footer>
 </body>
 </html>
