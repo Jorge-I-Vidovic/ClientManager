@@ -16,7 +16,9 @@
     <header th:fragment="header">
         <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div class="container-fluid">
-                <a th:href="@{/}" class="navbar-brand" th:text="#{template.title}"></a>
+                <a th:href="@{/}" class="navbar-brand">
+                    <img src="../../static/img/logo-vidovic-systems.webp" alt="Logo" width="30px" height="24px" class="d-inline-block align-text-top"> [[#{template.title}]]
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -69,18 +71,16 @@
         </section>
     </header>
 
-    <footer th:fragment="footer" class="bg-warning text-white mt-5 p-5">
+    <footer th:fragment="footer" class="bg-warning text-black mt-5 p-5">
         <div class="container">
-            <div class="col">
-                <p class="lead text-center">
-                    <a th:href="@{/(lang=es)}" class="text-white">ES</a> |
-                    <a th:href="@{/(lang=en)}" class="text-white">EN</a> |
-                    <span >Control Manager &copy; by <a href="https://github.com/Jorge-I-Vidovic" target="_blank" class="text-white">Jorge I.
+                <p class="lead text-center fw-normal">
+                    <a th:href="@{/(lang=es)}" class="text-black fw-bold">ES</a> |
+                    <a th:href="@{/(lang=en)}" class="text-black fw-bold">EN</a> |
+                    <span >Control Manager &copy; by <a href="https://github.com/Jorge-I-Vidovic" target="_blank" class="text-black fw-bold">Jorge I.
                             Vidovic</a> |
-                        <a href="https://vidovic.systems/" target="_blank" class="text-white">Vidovic Systems</a> -
+                        <a href="https://vidovic.systems/" target="_blank" class="text-black fw-bold">Vidovic Systems</a> -
                         [[#{template.footer}]]</span>
                 </p>
-            </div>
         </div>
     </footer>
 </body>

@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/template :: head">
+<head th:replace="~{layout/template :: head}">
   <title>Login</title>
   <meta charset="UTF-8"/>
 </head>
 <body>
-<header th:replace="layout/template :: header"></header>
-<h1>Login</h1>
+<header th:replace="~{layout/template :: header}"></header>
+<section id="login">
+  <div class="container mx-auto" style="max-width: 70%">
+    <div class="card mt-5 mb-5" style="">
+      <div class="card-header">
+        <h3 class="card-title">Login</h3>
+      </div>
+      <div class="card-body">
+        <form method="POST" th:action="@{/login}" class="d-grid">
+          <label for="username" class="form-label">Username:</label>
+          <input type="text" name="username" id="username"/>
+          <br/>
+          <label for="password" class="form-label">Password:</label>
+          <input type="password" name="password" id="password"/>
+          <div class="d-grid  mt-3">
+            <input type="submit" value="Login" class="btn btn-primary text-white fs-4"/>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
-<form method="POST" th:action="@{/login}">
-  <label for="username">Username:</label>
-  <input type="text" name="username" id="username"/>
-  <br/>
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password"/>
-  <br/>
-  <input type="submit" value="Login"/>
-</form>
+
 <footer th:replace="~{layout/template :: footer}"></footer>
 </body>
 </html>
