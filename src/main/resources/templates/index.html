@@ -8,8 +8,11 @@
 <body>
     <header th:replace="~{layout/template :: header}"></header>
     <section th:replace="~{layout/addButtons:: addButtons}"></section>
+    <!--
+
     <section th:replace="~{layout/addPerson:: addPerson}"></section>
     <section th:replace="~{layout/listPersons:: listPersons}"></section>
+    -->
     <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/addPerson}">[[#{person.create}]]</a>
     <div th:if="${persons != null and !persons.empty}">
         <table border="1">
