@@ -1,10 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Listado de clientes</title>
 </head>
 <body>
-
+<section th:fragment="listPersons" id="persons">
+    <div class="card mt-5 mb-5" style="">
+        <div class="card-header">
+            <h3 class="card-title">[[#{person.ListTitle}]]</h3>
+        </div>
+        <div th:if="${persons != null and !persons.empty}" class="card-body">
+            <table class="table table-stryped">
+                <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th th:text="#{person.name}">Nombre</th>
+                    <th th:text="#{person.saldo}">Saldo</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="person : ${persons}">
+                    <td>[[${person.nombre} + ' ' + ${person.apellido}]]</td>
+                    <td>
+                        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/editPerson/} + ${person.id_persona}"
+                           class="btn btn-secondary">
+                            <i class="fas fa-angle-double-right"></i> [[#{action.edit}]]
+                        </a>
+                    </td>
+                    <td>
+                        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/deletePerson/} + ${person.id_persona}"
+                           class="btn btn-dark">
+                            <i class="fas fa-angle-double-right"></i> [[#{action.delete}]]
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${persons == null or persons.empty}">
+            <p>[[#{person.emptyList}]]</p>
+        </div>
+    </div>
+</section>
 </body>
 </html>
