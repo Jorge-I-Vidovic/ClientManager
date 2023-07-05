@@ -22,6 +22,12 @@ public class IndexController {
     public String start(Model model) {
         var persons = personServ.listPersons();
         model.addAttribute("persons", persons);
+        var totalBalance = 0D;
+        for (var p : persons) {
+            totalBalance += p.getSaldo();
+        }
+        model.addAttribute("totalBalance", totalBalance);
+        model.addAttribute("totalClients", persons.size());
         return "index";
     }
 

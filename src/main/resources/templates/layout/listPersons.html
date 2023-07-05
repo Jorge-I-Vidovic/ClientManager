@@ -10,47 +10,73 @@
 <body>
 <section th:fragment="listPersons" id="persons">
     <div class="container">
-        <div class="card mt-3 mb-1">
-            <div class="card-header">
-                <h3 class="card-title">[[#{person.ListTitle}]]</h3>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card mt-3 mb-1">
+                    <div class="card-header">
+                        <h3 class="card-title">[[#{person.ListTitle}]]</h3>
+                    </div>
+                    <div th:if="${persons != null and !persons.empty}" class="card-body">
+                        <table class="table table-stryped">
+                            <thead class="table-dark">
+                            <tr>
+                                <th>#</th>
+                                <th th:text="#{person.name}">Nombre</th>
+                                <th th:text="#{person.saldo}">Saldo</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                            <tr th:each="person : ${persons}">
+                                <td>[[${person.id_persona}]]</td>
+                                <td>[[${person.nombre} + ' ' + ${person.apellido}]]</td>
+                                <td>[[${person.saldo}]] €</td>
+                                <td>
+                                    <a sec:authorize="hasRole('ROLE_ADMIN')"
+                                       th:href="@{/editPerson/} + ${person.id_persona}"
+                                       class="btn btn-secondary">
+                                        <i class="fas fa-angle-double-right"></i> [[#{action.edit}]]
+                                    </a>
+                                </td>
+                                <td>
+                                    <a sec:authorize="hasRole('ROLE_ADMIN')"
+                                       th:href="@{/deletePerson/} + ${person.id_persona}"
+                                       class="btn btn-dark">
+                                        <i class="fas fa-angle-double-right"></i> [[#{action.delete}]]
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div th:if="${persons == null or persons.empty}">
+                        <p>[[#{person.emptyList}]]</p>
+                    </div>
+                </div>
             </div>
-            <div th:if="${persons != null and !persons.empty}" class="card-body">
-                <table class="table table-stryped">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>#</th>
-                            <th th:text="#{person.name}">Nombre</th>
-                            <th th:text="#{person.saldo}">Saldo</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider">
-                    <tr th:each="person : ${persons}">
-                        <td>[[${person.id_persona}]]</td>
-                        <td>[[${person.nombre} + ' ' + ${person.apellido}]]</td>
-                        <td>[[${person.saldo}]] €</td>
-                        <td>
-                            <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/editPerson/} + ${person.id_persona}"
-                               class="btn btn-secondary">
-                                <i class="fas fa-angle-double-right"></i> [[#{action.edit}]]
-                            </a>
-                        </td>
-                        <td>
-                            <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/deletePerson/} + ${person.id_persona}"
-                               class="btn btn-dark">
-                                <i class="fas fa-angle-double-right"></i> [[#{action.delete}]]
-                            </a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div th:if="${persons == null or persons.empty}">
-                <p>[[#{person.emptyList}]]</p>
+            <div class="col-md-4 mt-3">
+                <div class="card text-center bg-success text-white mb-3">
+                    <div class="card-body">
+                        <h3 th:text="#{person.totalBalance}"></h3>
+                        <h4 class="display-4">
+                            [[${totalBalance}]] €
+                        </h4>
+                    </div>
+                </div>
+
+                <div class="card text-center bg-info text-white mb-3">
+                    <div class="card-body">
+                        <h3 th:text="#{person.totalClients}">Total Clientes</h3>
+                        <h4 class="display-4">
+                            <i class="fas fa-users"></i> [[${totalClients}]]
+                        </h4>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 </section>
 </body>
 </html>
