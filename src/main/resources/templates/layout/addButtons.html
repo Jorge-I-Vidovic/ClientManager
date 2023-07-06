@@ -12,7 +12,7 @@
         <div class="container mt-3">
             <div class="row">
                 <div class="col-md-3" sec:authorize="hasRole('ROLE_ADMIN')">
-                    <a href="/addPerson" class="btn btn-lg btn-primary btn-block"
+                    <a  data-bs-toggle="modal" data-bs-target="#addPerson" class="btn btn-lg btn-primary btn-block"
                        data-toggle="modal" data-target="#addPerson">
                         <i class="fas fa-plus"></i> [[#{action.add}]]
                     </a>

@@ -29,7 +29,7 @@
                             </thead>
                             <tbody class="table-group-divider">
                             <tr th:each="person : ${persons}">
-                                <td>[[${person.id_persona}]]</td>
+                                <td>[[${persons.indexOf(person) + 1}]]</td>
                                 <td>[[${person.nombre} + ' ' + ${person.apellido}]]</td>
                                 <td>[[${person.saldo}]] €</td>
                                 <td>

@@ -9,12 +9,12 @@
 </head>
 <body>
 <section th:fragment="addPerson">
-    <div id="agregarCliente" class="modal fade">
+    <div id="addPerson" class="modal fade">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header bg-info text-white">
                     <h5 class="modal-title" th:text="#{action.add}">Agregar Cliente</h5>
-                    <button class="close" data-dismiss="modal">
+                    <button class="close" data-bs-dismiss="modal">
                         <span>&times;</span>
                     </button>
                 </div>
@@ -22,24 +22,24 @@
                       method="POST" class="was-validated">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="name" th:text="#{person.nombre}">Nombre</label>
-                            <input type="text" class="form-control" name="name" required="true">
+                            <label for="nombre" th:text="#{person.name}">Nombre</label>
+                            <input type="text" class="form-control" name="nombre" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="apellido" th:text="#{person.apellido}">Apellido</label>
-                            <input type="text" class="form-control" name="apellido" required="true">
+                            <label for="apellido" th:text="#{person.lastname}">Apellido</label>
+                            <input type="text" class="form-control" name="apellido" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="email" th:text="#{person.email}">Email</label>
-                            <input type="email" class="form-control" name="email" required="true">
+                            <label for= "email" th:text="#{person.email}">Email</label>
+                            <input type="email" class="form-control" name="email" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="telefono" th:text="#{person.telefono}">Teléfono</label>
-                            <input type="tel" class="form-control" name="telefono">
+                            <label for="telefono" th:text="#{person.phone}">Teléfono</label>
+                            <input type="tel" class="form-control" name="telefono" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="saldo" th:text="#{persona.saldo}">Saldo</label>
-                            <input type="number" class="form-control" name="saldo" required="true" step="any">
+                            <label for="saldo" th:text="#{person.saldo}">Saldo</label>
+                            <input type="number" class="form-control" name="saldo" required="required" step="any">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -49,7 +49,6 @@
             </div>
         </div>
     </div>
-
 </section>
 
 </body>
