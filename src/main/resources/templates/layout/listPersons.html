@@ -31,7 +31,7 @@
                             <tr th:each="person : ${persons}">
                                 <td>[[${persons.indexOf(person) + 1}]]</td>
                                 <td>[[${person.nombre} + ' ' + ${person.apellido}]]</td>
-                                <td>[[${person.saldo}]] €</td>
+                                <td> €[[${person.saldo}]]</td>
                                 <td>
                                     <a sec:authorize="hasRole('ROLE_ADMIN')"
                                        th:href="@{/editPerson/} + ${person.id_persona}"
@@ -60,7 +60,7 @@
                     <div class="card-body">
                         <h3 th:text="#{person.totalBalance}"></h3>
                         <h4 class="display-4">
-                            [[${totalBalance}]] €
+                            €[[${totalBalance}]]
                         </h4>
                     </div>
                 </div>
