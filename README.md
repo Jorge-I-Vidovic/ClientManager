@@ -1,4 +1,4 @@
-# ClientManager
+# Client Manager
 
 Link: https://control-manager-by-jorgevidovic.up.railway.app/
 
